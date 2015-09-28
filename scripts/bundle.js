@@ -19874,6 +19874,7 @@ var React = require('react');
 var HeadingComponent = require('./HeadingComponent.js');
 var JobTipsComponent = require('./JobTipsComponent.js');
 var JobFormComponent = require('./JobFormComponent.js');
+var NavComponent = require('./NavComponent.js');
 
 module.exports = React.createClass({
 	displayName: 'exports',
@@ -19882,13 +19883,16 @@ module.exports = React.createClass({
 		return React.createElement(
 			'div',
 			null,
+			React.createElement(NavComponent, null),
+			React.createElement(JobFormComponent, null),
 			React.createElement(
 				'div',
 				{ className: 'mainContent' },
 				React.createElement(
 					HeadingComponent,
 					null,
-					'Tips For Your Job Posting'
+					'Tips For Your Job Posting',
+					React.createElement('hr', null)
 				),
 				React.createElement(
 					JobTipsComponent,
@@ -19896,9 +19900,9 @@ module.exports = React.createClass({
 					React.createElement(
 						'strong',
 						null,
-						'Add Keywords.'
+						'Add Keywords'
 					),
-					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
 				),
 				React.createElement(
 					JobTipsComponent,
@@ -19908,7 +19912,7 @@ module.exports = React.createClass({
 						null,
 						'Use Familiar Job Titles.'
 					),
-					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
 				),
 				React.createElement(
 					JobTipsComponent,
@@ -19918,7 +19922,7 @@ module.exports = React.createClass({
 						null,
 						'Give Them Details.'
 					),
-					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
 				),
 				React.createElement(
 					JobTipsComponent,
@@ -19928,7 +19932,7 @@ module.exports = React.createClass({
 						null,
 						'Expand Your Location.'
 					),
-					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
 				),
 				React.createElement(
 					JobTipsComponent,
@@ -19938,15 +19942,14 @@ module.exports = React.createClass({
 						null,
 						'Discuss Compensation.'
 					),
-					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+					'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
 				)
-			),
-			React.createElement(JobFormComponent, null)
+			)
 		);
 	}
 });
 
-},{"./HeadingComponent.js":158,"./JobFormComponent.js":159,"./JobTipsComponent.js":160,"react":156}],158:[function(require,module,exports){
+},{"./HeadingComponent.js":158,"./JobFormComponent.js":159,"./JobTipsComponent.js":160,"./NavComponent.js":161,"react":156}],158:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -19964,18 +19967,61 @@ module.exports = React.createClass({
 });
 
 },{"react":156}],159:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var React = require('react');
 
 module.exports = React.createClass({
-	displayName: 'exports',
+	displayName: "exports",
 
 	render: function render() {
 		return React.createElement(
-			'form',
-			null,
-			React.createElement('input', null)
+			"form",
+			{ className: "postForm" },
+			React.createElement(
+				"h3",
+				null,
+				"Post your Job"
+			),
+			React.createElement(
+				"div",
+				null,
+				"Title"
+			),
+			React.createElement("input", null),
+			React.createElement(
+				"div",
+				null,
+				"Company Name"
+			),
+			React.createElement("input", null),
+			React.createElement(
+				"div",
+				null,
+				"Location"
+			),
+			React.createElement("input", null),
+			React.createElement(
+				"div",
+				null,
+				"Description"
+			),
+			React.createElement("textarea", null),
+			React.createElement(
+				"div",
+				null,
+				"Tags"
+			),
+			React.createElement("input", null),
+			React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"button",
+					null,
+					"Submit Job"
+				)
+			)
 		);
 	}
 });
@@ -19998,6 +20044,58 @@ module.exports = React.createClass({
 });
 
 },{"react":156}],161:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: "exports",
+
+	render: function render() {
+		return React.createElement(
+			"nav",
+			null,
+			React.createElement("hr", { className: "navHr" }),
+			React.createElement("div", { className: "logo" }),
+			React.createElement(
+				"a",
+				{ href: "#" },
+				React.createElement(
+					"strong",
+					null,
+					"FRESH JOBS"
+				)
+			),
+			React.createElement(
+				"a",
+				{ href: "#" },
+				"JOBS"
+			),
+			React.createElement(
+				"a",
+				{ href: "#" },
+				"COMPANIES"
+			),
+			React.createElement(
+				"a",
+				{ href: "#" },
+				"CITIES"
+			),
+			React.createElement(
+				"a",
+				{ href: "#" },
+				"WHY FRESH?"
+			),
+			React.createElement(
+				"a",
+				{ href: "#" },
+				"FOR EMPLOYERS"
+			)
+		);
+	}
+});
+
+},{"react":156}],162:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -20006,7 +20104,7 @@ var main = document.getElementById('main');
 
 React.render(React.createElement(AppComponent, null), main);
 
-},{"./components/AppComponent.js":157,"react":156}]},{},[161])
+},{"./components/AppComponent.js":157,"react":156}]},{},[162])
 
 
 //# sourceMappingURL=bundle.js.map
