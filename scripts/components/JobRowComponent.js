@@ -1,20 +1,32 @@
 var React = require('react');
+var TagsCollection = require('../collections/TagsCollection.js');
+
+var Tags = new TagsCollection();
+
+Tags.add({id: 1, tagName: 'javascript'});
+Tags.add({id: 2, tagName: 'jquery'});
+Tags.add({id: 3, tagName: 'backbone'});
+Tags.add({id: 4, tagName: 'react'});
+Tags.add({id: 5, tagName: 'java'});
+
 
 module.exports = React.createClass({
 	render: function() {
+		var tagArray = this.props.model.get("tags");
+		var tag = [];
+		for(var i = 0; i < tagArray.length; i++){
+			tag.push(Tags.findWhere({id: tagArray[i]}));
+		}
+		var tagForModel = tag.map(function(tagName){
+			return <span key={"tag"+tagName.get("id")}>{tagName.get("tagName")}</span>
+		});
 		return (
 			<div className="jobRow">
-				<span className="datePosted">yesterday</span>
-				<h4>Senior Frontend Engineer</h4><br />
-				<h6>NSONE - New York, NY</h6><br />
-				<h6>Senior Frontend EngineerSolve Hard Problems
-				With a Team of Infrastructure ProsNSONE is based
-				in New York...</h6><br /><br />
-				<span>angularjs</span>
-				<span>d3.js</span>
-				<span>javascript</span>
-				<span>ui</span>
-				<span>css</span>
+				<span className="datePosted">{this.props.model.get('datePosted')}</span>
+				<h4>{this.props.model.get('jobTitle')}</h4><br />
+				<h6>{this.props.model.get('location')}</h6><br />
+				<h6>{this.props.model.get('description')}</h6><br /><br />
+				{tagForModel}
 			</div>
 		)
 	}

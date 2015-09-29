@@ -124,7 +124,29 @@ body {
       color: white;
       background: RGBA(113, 113, 113, 1); }
   body .companyInfo {
-    background: white; }
+    background: white;
+    padding: 5em;
+    text-align: center; }
+    body .companyInfo > h1:first-child {
+      text-align: left; }
+    body .companyInfo .picContainer {
+      width: 60%;
+      margin: 0 auto;
+      text-align: center; }
+    body .companyInfo .picture {
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 100%;
+      height: 20em; }
+    body .companyInfo .logo {
+      text-align: center;
+      width: 40%;
+      margin-top: 25%; }
+  body .companyName {
+    color: #349B40;
+    margin-top: 10%; }
+  body h2 {
+    color: #636363; }
 
 @media screen and (min-width: 50em) {
   body .postForm {

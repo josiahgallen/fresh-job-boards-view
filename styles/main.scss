@@ -1,39 +1,36 @@
 body {
-	font-family: sans-serif;
-	background: url('../images/bg.png');
-	margin: 0;
-	nav {
-		overflow: hidden;
-		background: white;
-		padding-bottom: 1em;
-
-		.navHr {
-			background: RGBA(82, 82, 82, 1);
-			height: 1em;
-			margin-top: 0;
-		}
-
-		a {
-			text-decoration: none;
-			color: black;
-			margin: 0 1%;
-			float: left;
-			padding: 1em;
-			font-size: .8em;
-		}
-		.logo {
-			background-size: contain;
-			background: url('../images/logo.png') no-repeat;
-			height: 2.5em;
-			background-size: 3em;
-			width: 4em;
-			float: left;
-			margin-left: 10%;
-		}
-	}
-
+    font-family: sans-serif;
+    background: url('../images/bg.png');
+    margin: 0;
+    nav {
+        overflow: hidden;
+        background: white;
+        padding-bottom: 1em;
+        .navHr {
+            background: RGBA(82, 82, 82, 1);
+            height: 1em;
+            margin-top: 0;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            margin: 0 1%;
+            float: left;
+            padding: 1em;
+            font-size: .8em;
+        }
+        .logo {
+            background-size: contain;
+            background: url('../images/logo.png') no-repeat;
+            height: 2.5em;
+            background-size: 3em;
+            width: 4em;
+            float: left;
+            margin-left: 10%;
+        }
+    }
     .mainContent {
-    	box-sizing: border-box;
+        box-sizing: border-box;
         border: double 4px black;
         padding: 1em;
         float: left;
@@ -43,9 +40,9 @@ body {
         box-shadow: 0 .5em .5em 0 gray;
     }
     .postForm {
-    	box-sizing: border-box;
-    	width: 96%;
-    	float: left;
+        box-sizing: border-box;
+        width: 96%;
+        float: left;
         border: double 4px black;
         padding: 1em;
         background: white;
@@ -75,117 +72,127 @@ body {
             }
         }
     }
-
     .jobRow {
-    	background: white;
-    	overflow: hidden;
-    	h4 {
-    		margin: 0;
-    		color: RGBA(0, 45, 18, 1);
-    		float: left;
-    		//padding-bottom: .5em;
-    	}
-    	.datePosted {
-    		float: right;
-    		color: RGBA(178, 178, 178, 1);
-    		border: none;
-    		background: white;
-    		padding: 0;
-    		font-size: 10px;
-    	}
-    	h6 {
-    		margin: 0;
-    		float: left;
-    	}
-    	h6:nth-child(6) {
-    		color: RGBA(178, 178, 178, 1);
-    	}
-    	span {
-    		float: left;
-    		margin-right: .3em;
-    		background: RGBA(251, 250, 236, 1);
-    		border: solid 1px RGBA(230, 231, 154, 1);
-    		padding: .5em;
-    		font-size: 12px;
-    	}
-    }
-
-    .filterForm {
-    	overflow: hidden;
-    	> div {
-    		float: left;
-    		width: 40%;
-    		box-sizing: border-box;
-    	}
-
-    	div:first-child {
-    		input {
-    			width: 90%
-    		}
-    	}
-
-    	input {
-    		display: inline-block;
-    		height: 3em;
-    		margin-right: 1%;
-    		width: 70%;
-    	}
-    	button {
-                padding: .5em;
-                background: #3e9a48;
-                color: #f4fdc7;
-                border: none;
-                font-size: 1em;
-                border-radius: 4px;
+        background: white;
+        overflow: hidden;
+        h4 {
+            margin: 0;
+            color: RGBA(0, 45, 18, 1);
+            float: left;
+            //padding-bottom: .5em;
+        }
+        .datePosted {
+            float: right;
+            color: RGBA(178, 178, 178, 1);
+            border: none;
+            background: white;
+            padding: 0;
+            font-size: 10px;
+        }
+        h6 {
+            margin: 0;
+            float: left;
+        }
+        h6:nth-child(6) {
+            color: RGBA(178, 178, 178, 1);
+        }
+        span {
+            float: left;
+            margin-right: .3em;
+            background: RGBA(251, 250, 236, 1);
+            border: solid 1px RGBA(230, 231, 154, 1);
+            padding: .5em;
+            font-size: 12px;
         }
     }
-
-    .infoBox {
-    	background: RGBA(251, 250, 236, 1);
-    	border: solid 1px RGBA(230, 231, 154, 1);
-    	font-size: 2.5em;
-    	padding: 1em;
-
-    	h1 {
-    		display: block;
-    	}
-
-    	ul {
-    		padding-left: 2em;
-    	}
-
-    	button {
-    		width: 100%;
-    		font-size: 1.5em;
-    		border-radius: 10px;
-    		color: white;
-    		background: RGBA(113, 113, 113, 1);
-       	}
+    .filterForm {
+        overflow: hidden;
+        > div {
+            float: left;
+            width: 40%;
+            box-sizing: border-box;
+        }
+        div:first-child {
+            input {
+                width: 90%
+            }
+        }
+        input {
+            display: inline-block;
+            height: 3em;
+            margin-right: 1%;
+            width: 70%;
+        }
+        button {
+            padding: .5em;
+            background: #3e9a48;
+            color: #f4fdc7;
+            border: none;
+            font-size: 1em;
+            border-radius: 4px;
+        }
     }
-
+    .infoBox {
+        background: RGBA(251, 250, 236, 1);
+        border: solid 1px RGBA(230, 231, 154, 1);
+        font-size: 2.5em;
+        padding: 1em;
+        h1 {
+            display: block;
+        }
+        ul {
+            padding-left: 2em;
+        }
+        button {
+            width: 100%;
+            font-size: 1.5em;
+            border-radius: 10px;
+            color: white;
+            background: RGBA(113, 113, 113, 1);
+        }
+    }
     .companyInfo {
-    	background: white;
+        background: white;
+        padding: 5em;
+        text-align: center;
 
-    	div {
-    		margin: 0 auto;
-    		width 80%;
-    		height: 50em;
+        >h1:first-child {
+            text-align: left;
+        }
+        .picContainer {
+            width: 60%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .picture {
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100%;
+            height: 20em;
+        }
+        .logo {
+            text-align: center;
+            width: 40%;
+            margin-top: 25%;
 
-    		img {
-    			width: 100%;
-    		}
-    	}
+        }
+    }
+    .companyName {
+        color: #349B40;
+        margin-top: 10%;
+    }
+    h2 {
+        color: #636363;
     }
 }
 
 @media screen and (min-width: 50em) {
-	body .postForm {
-		margin: 1em 1% 0 2%;
-		width: 64%;
-	}
-
-	body .mainContent {
-		margin: 1em 2% 0 1%;
-		width: 30%;
-	}
+    body .postForm {
+        margin: 1em 1% 0 2%;
+        width: 64%;
+    }
+    body .mainContent {
+        margin: 1em 2% 0 1%;
+        width: 30%;
+    }
 }
