@@ -32,7 +32,8 @@ body {
     float: left;
     width: 96%;
     background: white;
-    margin: 1em 2% 0 2%; }
+    margin: 1em 2% 0 2%;
+    box-shadow: 0 0.5em 0.5em 0 gray; }
   body .postForm {
     box-sizing: border-box;
     width: 96%;
@@ -40,7 +41,8 @@ body {
     border: double 4px black;
     padding: 1em;
     background: white;
-    margin: 1em 2% 0 2%; }
+    margin: 1em 2% 0 2%;
+    box-shadow: 0 0.5em 0.5em 0 gray; }
     body .postForm input {
       width: 100%;
       margin-bottom: .5em;
@@ -60,6 +62,69 @@ body {
         font-size: 1.5em;
         border-radius: 4px;
         margin-top: 1em; }
+  body .jobRow {
+    background: white;
+    overflow: hidden; }
+    body .jobRow h4 {
+      margin: 0;
+      color: RGBA(0, 45, 18, 1);
+      float: left; }
+    body .jobRow .datePosted {
+      float: right;
+      color: RGBA(178, 178, 178, 1);
+      border: none;
+      background: white;
+      padding: 0;
+      font-size: 10px; }
+    body .jobRow h6 {
+      margin: 0;
+      float: left; }
+    body .jobRow h6:nth-child(6) {
+      color: RGBA(178, 178, 178, 1); }
+    body .jobRow span {
+      float: left;
+      margin-right: .3em;
+      background: RGBA(251, 250, 236, 1);
+      border: solid 1px RGBA(230, 231, 154, 1);
+      padding: .5em;
+      font-size: 12px; }
+  body .filterForm {
+    overflow: hidden; }
+    body .filterForm > div {
+      float: left;
+      width: 40%;
+      box-sizing: border-box; }
+    body .filterForm div:first-child input {
+      width: 90%; }
+    body .filterForm input {
+      display: inline-block;
+      height: 3em;
+      margin-right: 1%;
+      width: 70%; }
+    body .filterForm button {
+      padding: .5em;
+      background: #3e9a48;
+      color: #f4fdc7;
+      border: none;
+      font-size: 1em;
+      border-radius: 4px; }
+  body .infoBox {
+    background: RGBA(251, 250, 236, 1);
+    border: solid 1px RGBA(230, 231, 154, 1);
+    font-size: 2.5em;
+    padding: 1em; }
+    body .infoBox h1 {
+      display: block; }
+    body .infoBox ul {
+      padding-left: 2em; }
+    body .infoBox button {
+      width: 100%;
+      font-size: 1.5em;
+      border-radius: 10px;
+      color: white;
+      background: RGBA(113, 113, 113, 1); }
+  body .companyInfo {
+    background: white; }
 
 @media screen and (min-width: 50em) {
   body .postForm {
