@@ -1,38 +1,66 @@
 var React = require('react');
-var HeadingComponent = require('./HeadingComponent.js');
-var JobTipsComponent = require('./JobTipsComponent.js');
-var JobFormComponent = require('./JobFormComponent.js');
-var JobRowComponent = require('./JobRowComponent.js');
 var NavComponent = require('./NavComponent.js');
-var CompanyBoxComponent = require('./CompanyBoxComponent.js');
-var JobModel = require('../models/JobModel.js');
-var CompanyBoxModel = require('../models/CompanyBoxModel.js');
+var JobsListPageComponent = require('./JobsListPageComponent.js');
+var JobsCollection = require('../collections/JobsCollection.js');
+
+var jobs = new JobsCollection([
+		{
+			jobTitle: 'Hamburgler',
+			company: 'McDowells',
+			location: 'McGlobal',
+			datePosted: new Date().toDateString(),
+			description: 'Burger relocator',
+			requirements: 'Must look good in black mask and striped pajamas',
+			tags: [1]
+		},
+		{
+			jobTitle: 'Grimace',
+			company: 'McDowells',
+			location: 'McGlobal',
+			datePosted: new Date().toDateString(),
+			description: 'Being Purlple',
+			requirements: 'wear purlple trashbag',
+			tags: [1]
+		},
+		{
+			jobTitle: 'Mayor McCheese',
+			company: 'McDowells',
+			location: 'McGlobal',
+			datePosted: new Date().toDateString(),
+			description: 'Be Mayor',
+			requirements: 'Hand out keys to the city',
+			tags: [1]
+		},
+		{
+			jobTitle: 'Ronald McDonald',
+			company: 'McDowells',
+			location: 'McGlobal',
+			datePosted: new Date().toDateString(),
+			description: 'Clown Around',
+			requirements: 'Creep out parents and children',
+			tags: [1]
+		},
+		{
+			jobTitle: 'Officer Big Mac',
+			company: 'McDowells',
+			location: 'McGlobal',
+			datePosted: new Date().toDateString(),
+			description: 'Arrest Hamburgler',
+			requirements: 'eat donuts inside of burgers',
+			tags: [1]
+		}
+	]);
+
 
 
 module.exports = React.createClass({
-	JobModel1: new JobModel(
-		{
-			jobTitle: 'Frontend Engineer',
-			company: 'MaxPlay',
-			location: 'Austin, TX',
-			datePosted:  new Date().toDateString(),
-			description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
-			requirements: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
-			tags: [1,2,3,4,5]
-		}),
-	CompanyBoxModel1: new CompanyBoxModel(
-		{
-			companyName: 'MaxPlay',
-			location: 'Austin, TX',
-			logo: '../../images/featured-logo.jpg',
-			background: '../../images/featured.jpg'
-		}),
 	render: function() {
-
 		return (
 			<div>
-				<JobRowComponent model={this.JobModel1} />
-				<CompanyBoxComponent model={this.CompanyBoxModel1} />
+				<NavComponent />
+				<main>
+					<JobsListPageComponent jobs={jobs} />
+				</main>
 			</div>
 		)
 	}

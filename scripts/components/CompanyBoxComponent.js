@@ -2,10 +2,7 @@ var React = require('react');
 
 module.exports = React.createClass({
 	render: function() {
-		var backgroundPhoto={
-			backgroundImage
-: 'url('+this.props.model.get('background')+')'
-		}
+		var backgroundPhoto={backgroundImage: 'url('+this.props.model.get('background')+')'}
 		return (
 			<div className="companyInfo">
 				<h1>Company Information</h1>

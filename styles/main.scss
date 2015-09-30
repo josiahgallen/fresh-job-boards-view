@@ -75,6 +75,12 @@ body {
     .jobRow {
         background: white;
         overflow: hidden;
+        margin: 0 2% 0 2%;
+        padding: 1em;
+        width: 96%;
+        box-sizing: border-box;
+
+
         h4 {
             margin: 0;
             color: RGBA(0, 45, 18, 1);
@@ -107,6 +113,11 @@ body {
     }
     .filterForm {
         overflow: hidden;
+        background-color: white;
+        margin: 1em 2% 0 2%;
+        padding: 1em;
+        width: 96%;
+        box-sizing: border-box;
         > div {
             float: left;
             width: 40%;
@@ -155,6 +166,9 @@ body {
         background: white;
         padding: 5em;
         text-align: center;
+        width: 96%;
+        box-sizing: border-box;
+        margin: 1em 2% 0 2%;
 
         >h1:first-child {
             text-align: left;
@@ -194,5 +208,26 @@ body {
     body .mainContent {
         margin: 1em 2% 0 1%;
         width: 30%;
+    }
+
+    body .filterForm {
+        margin: 1em 1% 0 2%;
+        width: 64%;
+        float: left;
+    }
+
+    body .companyInfo {
+        margin: 0 2% 0 1%;
+        width: 30%;
+        float: left;
+    }
+
+    body .jobRow {
+        margin: 0 1% 0 2%;
+        width: 64%;
+        float: left;
+    }
+    body .companyName {
+        margin-top: 2%;
     }
 }

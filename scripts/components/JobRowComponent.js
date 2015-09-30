@@ -12,7 +12,7 @@ Tags.add({id: 5, tagName: 'java'});
 
 module.exports = React.createClass({
 	render: function() {
-		var tagArray = this.props.model.get("tags");
+		var tagArray = this.props.job.get("tags");
 		var tag = [];
 		for(var i = 0; i < tagArray.length; i++){
 			tag.push(Tags.findWhere({id: tagArray[i]}));
@@ -22,10 +22,10 @@ module.exports = React.createClass({
 		});
 		return (
 			<div className="jobRow">
-				<span className="datePosted">{this.props.model.get('datePosted')}</span>
-				<h4>{this.props.model.get('jobTitle')}</h4><br />
-				<h6>{this.props.model.get('location')}</h6><br />
-				<h6>{this.props.model.get('description')}</h6><br /><br />
+				<span className="datePosted">{this.props.job.get('datePosted')}</span>
+				<h4>{this.props.job.get('jobTitle')}</h4><br />
+				<h6>{this.props.job.get('location')}</h6><br />
+				<h6>{this.props.job.get('description')}</h6><br /><br />
 				{tagForModel}
 			</div>
 		)
