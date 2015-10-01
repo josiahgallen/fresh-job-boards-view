@@ -4,18 +4,22 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<form className="filterForm">
-					<div>
+					<div className="filterInput1">
 						<div>
 							Keywords
 						</div>
 						<input />
 					</div>
-					<div>
+					<div className="filterInput2">
 						<div>
 							Location
 						</div>
-						<input />
-						<button>Search</button>
+						<div>
+							<input />
+						</div>
+					</div>
+					<div>
+							<button>Search</button>
 					</div>
 			</form>
 		)

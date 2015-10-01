@@ -58,9 +58,9 @@ module.exports = React.createClass({
 		return (
 			<div>
 				<NavComponent />
-				<main>
+				<section>
 					<JobsListPageComponent jobs={jobs} />
-				</main>
+				</section>
 			</div>
 		)
 	}

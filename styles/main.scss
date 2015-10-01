@@ -1,95 +1,72 @@
 body {
     font-family: sans-serif;
-    background: url('../images/bg.png');
+    background-image: url('../images/bg.png');
     margin: 0;
-    nav {
-        overflow: hidden;
-        background: white;
-        padding-bottom: 1em;
-        .navHr {
-            background: RGBA(82, 82, 82, 1);
-            height: 1em;
-            margin-top: 0;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-            margin: 0 1%;
-            float: left;
-            padding: 1em;
-            font-size: .8em;
-        }
-        .logo {
-            background-size: contain;
-            background: url('../images/logo.png') no-repeat;
-            height: 2.5em;
-            background-size: 3em;
-            width: 4em;
-            float: left;
-            margin-left: 10%;
-        }
+}
+
+section {
+    width: 100%;
+}
+
+nav {
+    overflow: hidden;
+    background-color: white;
+
+    .navHr {
+        background: rgba(82, 82, 82, 1);
+        height: 1em;
+        margin-top: 0;
     }
-    .mainContent {
-        box-sizing: border-box;
-        border: double 4px black;
-        padding: 1em;
+
+    .links {
         float: left;
-        width: 96%;
-        background: white;
-        margin: 1em 2% 0 2%;
-        box-shadow: 0 .5em .5em 0 gray;
     }
-    .postForm {
-        box-sizing: border-box;
-        width: 96%;
+
+    a {
+        text-decoration: none;
+        color: black;
+        margin: 0 1em;
         float: left;
-        border: double 4px black;
         padding: 1em;
-        background: white;
-        margin: 1em 2% 0 2%;
-        box-shadow: 0 .5em .5em 0 gray;
-        input {
-            width: 100%;
-            margin-bottom: .5em;
-            height: 4em;
-        }
-        textarea {
-            width: 100%;
-            margin-bottom: .5em;
-            height: 12em;
-        }
-        div {
-            overflow: hidden;
-            button {
-                float: right;
-                padding: .5em;
-                background: #3e9a48;
-                color: #f4fdc7;
-                border: none;
-                font-size: 1.5em;
-                border-radius: 4px;
-                margin-top: 1em;
-            }
-        }
+        font-size: .8em;
     }
+
+    .logo {
+        background-size: contain;
+        background: url('../images/logo.png') no-repeat;
+        height: 2.5em;
+        background-size: 3em;
+        width: 4em;
+        float: left;
+        margin: 0 0 1em 5em;
+    }
+}
+
+.rightColumn {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1em 0 1em;
+}
+
+.leftColumn {
+    float: left;
+    width: 100%;
+    padding: 0 1em 0 1em;
+    box-sizing: border-box;
+    margin-top: 1em;
+
     .jobRow {
-        background: white;
-        overflow: hidden;
-        margin: 0 2% 0 2%;
         padding: 1em;
-        width: 96%;
-        box-sizing: border-box;
-
-
+        overflow: hidden;
         h4 {
             margin: 0;
-            color: RGBA(0, 45, 18, 1);
+            color: rgba(0, 45, 18, 1);
             float: left;
-            //padding-bottom: .5em;
         }
         .datePosted {
             float: right;
-            color: RGBA(178, 178, 178, 1);
+            color: rgba(178, 178, 178, 1);
             border: none;
             background: white;
             padding: 0;
@@ -100,134 +77,81 @@ body {
             float: left;
         }
         h6:nth-child(6) {
-            color: RGBA(178, 178, 178, 1);
+            color: rgba(178, 178, 178, 1);
         }
         span {
             float: left;
             margin-right: .3em;
-            background: RGBA(251, 250, 236, 1);
+            background: rgba(251, 250, 236, 1);
             border: solid 1px RGBA(230, 231, 154, 1);
             padding: .5em;
             font-size: 12px;
         }
     }
+
     .filterForm {
         overflow: hidden;
-        background-color: white;
-        margin: 1em 2% 0 2%;
         padding: 1em;
-        width: 96%;
         box-sizing: border-box;
-        > div {
+        .filterInput1 {
             float: left;
-            width: 40%;
+            width: 33%;
+            overflow: hidden;
             box-sizing: border-box;
         }
+        .filterInput2 {
+            float: left;
+            width: 33%;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding-right: 1em;
+        }
         div:first-child {
+            padding-right: 1em;
             input {
-                width: 90%
+                width: 100%;
             }
         }
         input {
-            display: inline-block;
+            box-sizing: border-box;
+            float: left;
             height: 3em;
-            margin-right: 1%;
-            width: 70%;
+            width: 100%;
         }
         button {
-            padding: .5em;
-            background: #3e9a48;
+            margin-top: 1.2em;
+            width: 33%;
+            box-sizing: border-box;
+            overflow: hidden;
+            float: left;
+            padding: .4em;
+            background-color: #3e9a48;
             color: #f4fdc7;
             border: none;
             font-size: 1em;
             border-radius: 4px;
         }
     }
-    .infoBox {
-        background: RGBA(251, 250, 236, 1);
-        border: solid 1px RGBA(230, 231, 154, 1);
-        font-size: 2.5em;
-        padding: 1em;
-        h1 {
-            display: block;
-        }
-        ul {
-            padding-left: 2em;
-        }
-        button {
-            width: 100%;
-            font-size: 1.5em;
-            border-radius: 10px;
-            color: white;
-            background: RGBA(113, 113, 113, 1);
-        }
-    }
-    .companyInfo {
-        background: white;
-        padding: 5em;
-        text-align: center;
-        width: 96%;
-        box-sizing: border-box;
-        margin: 1em 2% 0 2%;
 
-        >h1:first-child {
-            text-align: left;
-        }
-        .picContainer {
-            width: 60%;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .picture {
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 100%;
-            height: 20em;
-        }
-        .logo {
-            text-align: center;
-            width: 40%;
-            margin-top: 25%;
-
-        }
-    }
-    .companyName {
-        color: #349B40;
-        margin-top: 10%;
-    }
-    h2 {
-        color: #636363;
+    > div {
+        background-color: white;
     }
 }
 
-@media screen and (min-width: 50em) {
-    body .postForm {
-        margin: 1em 1% 0 2%;
-        width: 64%;
+.companyInfo {
+        background-color: white;
     }
-    body .mainContent {
-        margin: 1em 2% 0 1%;
+
+
+
+@media screen and (min-width: 800px) {
+    .rightColumn {
+        float: left;
         width: 30%;
     }
 
-    body .filterForm {
-        margin: 1em 1% 0 2%;
-        width: 64%;
+    .leftColumn {
         float: left;
-    }
-
-    body .companyInfo {
-        margin: 0 2% 0 1%;
-        width: 30%;
-        float: left;
-    }
-
-    body .jobRow {
-        margin: 0 1% 0 2%;
-        width: 64%;
-        float: left;
-    }
-    body .companyName {
-        margin-top: 2%;
+        width: 70%;
     }
 }

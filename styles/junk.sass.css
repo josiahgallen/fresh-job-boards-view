@@ -1,0 +1,99 @@
+.mainContent {
+  box-sizing: border-box;
+  border: double 4px black;
+  padding: 1em;
+  float: left;
+  width: 96%;
+  background: white;
+  margin: 1em 2% 0 2%;
+  box-shadow: 0 0.5em 0.5em 0 gray; }
+
+.postForm {
+  box-sizing: border-box;
+  width: 96%;
+  float: left;
+  border: double 4px black;
+  padding: 1em;
+  background: white;
+  margin: 1em 2% 0 2%;
+  box-shadow: 0 0.5em 0.5em 0 gray; }
+  .postForm input {
+    width: 100%;
+    margin-bottom: .5em;
+    height: 4em; }
+  .postForm textarea {
+    width: 100%;
+    margin-bottom: .5em;
+    height: 12em; }
+  .postForm div {
+    overflow: hidden; }
+    .postForm div button {
+      float: right;
+      padding: .5em;
+      background: #3e9a48;
+      color: #f4fdc7;
+      border: none;
+      font-size: 1.5em;
+      border-radius: 4px;
+      margin-top: 1em; }
+
+.jobPageWrapper {
+  overflow: hidden;
+  width: 100%; }
+
+.infoBox {
+  background: #fbfaec;
+  border: solid 1px #e6e79a;
+  font-size: 2.5em;
+  padding: 1em; }
+  .infoBox h1 {
+    display: block; }
+  .infoBox ul {
+    padding-left: 2em; }
+  .infoBox button {
+    width: 100%;
+    font-size: 1.5em;
+    border-radius: 10px;
+    color: white;
+    background: #717171; }
+
+.companyInfo {
+  background: white;
+  padding: 5em;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  border-right: 1em solid transparent;
+  border-left: 1em solid transparent; }
+  .companyInfo > h1:first-child {
+    text-align: left; }
+  .companyInfo .picContainer {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center; }
+  .companyInfo .picture {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 20em; }
+  .companyInfo .logo {
+    text-align: center;
+    width: 40%;
+    margin-top: 25%; }
+
+.companyName {
+  color: #349B40;
+  margin-top: 10%; }
+
+h2 {
+  color: #636363; }
+
+@media screen and (min-width: 1002px) {
+  body .postForm {
+    margin: 1em 1% 0 2%;
+    width: 64%; }
+  body .mainContent {
+    margin: 1em 2% 0 1%;
+    width: 30%; }
+  body .leftColumn {
+    width: 70%; } }

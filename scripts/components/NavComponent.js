@@ -5,14 +5,18 @@ module.exports = React.createClass({
 		return (
 			<nav>
 				<hr className="navHr" />
-				<div className="logo">
-				</div>
+				<div className="logoWrapper">
+					<div className="logo">
+					</div>
 					<a href="#"><strong>FRESH JOBS</strong></a>
+				</div>
+				<div className="links">
 					<a href="#">JOBS</a>
 					<a href="#">COMPANIES</a>
 					<a href="#">CITIES</a>
 					<a href="#">WHY FRESH?</a>
 					<a href="#">FOR EMPLOYERS</a>
+				</div>
 			</nav>
 		)
 	}

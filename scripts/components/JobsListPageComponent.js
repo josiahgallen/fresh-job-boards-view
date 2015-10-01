@@ -31,14 +31,14 @@ module.exports = React.createClass({
 			)
 		})
 		return (
-			<div>
-				<div>
-					<FilterBoxComponent />
-					{jobsRow}
+			<div className="jobPageWrapper">
+				<div className="leftColumn">
+					<div>
+						<FilterBoxComponent />
+						{jobsRow}
+					</div>
 				</div>
-				<div>
-					<CompanyBoxComponent model={this.CompanyBoxModel1} />
-				</div>
+				<CompanyBoxComponent model={this.CompanyBoxModel1} />
 			</div>
 		)
 	}

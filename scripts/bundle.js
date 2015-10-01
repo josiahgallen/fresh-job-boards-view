@@ -32607,7 +32607,7 @@ module.exports = React.createClass({
 			null,
 			React.createElement(NavComponent, null),
 			React.createElement(
-				'main',
+				'section',
 				null,
 				React.createElement(JobsListPageComponent, { jobs: jobs })
 			)
@@ -32627,35 +32627,39 @@ module.exports = React.createClass({
 		var backgroundPhoto = { backgroundImage: 'url(' + this.props.model.get('background') + ')' };
 		return React.createElement(
 			'div',
-			{ className: 'companyInfo' },
-			React.createElement(
-				'h1',
-				null,
-				'Company Information'
-			),
-			React.createElement('hr', null),
+			{ className: 'rightColumn' },
 			React.createElement(
 				'div',
-				{ className: 'picContainer' },
-				React.createElement(
-					'div',
-					{ className: 'picture', style: backgroundPhoto },
-					React.createElement('img', { className: 'logo', src: this.props.model.get('logo') })
-				)
-			),
-			React.createElement(
-				'div',
-				null,
+				{ className: 'companyInfo' },
 				React.createElement(
 					'h1',
-					{ className: 'companyName' },
-					this.props.model.get('companyName')
+					null,
+					'Company Information'
+				),
+				React.createElement('hr', null),
+				React.createElement(
+					'div',
+					{ className: 'picContainer' },
+					React.createElement(
+						'div',
+						{ className: 'picture', style: backgroundPhoto },
+						React.createElement('img', { className: 'logo', src: this.props.model.get('logo') })
+					)
+				),
+				React.createElement(
+					'div',
+					null,
+					React.createElement(
+						'h1',
+						{ className: 'companyName' },
+						this.props.model.get('companyName')
+					)
+				),
+				React.createElement(
+					'h2',
+					null,
+					this.props.model.get('location')
 				)
-			),
-			React.createElement(
-				'h2',
-				null,
-				this.props.model.get('location')
 			)
 		);
 	}
@@ -32675,7 +32679,7 @@ module.exports = React.createClass({
 			{ className: "filterForm" },
 			React.createElement(
 				"div",
-				null,
+				{ className: "filterInput1" },
 				React.createElement(
 					"div",
 					null,
@@ -32685,13 +32689,21 @@ module.exports = React.createClass({
 			),
 			React.createElement(
 				"div",
-				null,
+				{ className: "filterInput2" },
 				React.createElement(
 					"div",
 					null,
 					"Location"
 				),
-				React.createElement("input", null),
+				React.createElement(
+					"div",
+					null,
+					React.createElement("input", null)
+				)
+			),
+			React.createElement(
+				"div",
+				null,
 				React.createElement(
 					"button",
 					null,
@@ -32799,18 +32811,18 @@ module.exports = React.createClass({
 		});
 		return React.createElement(
 			'div',
-			null,
+			{ className: 'jobPageWrapper' },
 			React.createElement(
 				'div',
-				null,
-				React.createElement(FilterBoxComponent, null),
-				jobsRow
+				{ className: 'leftColumn' },
+				React.createElement(
+					'div',
+					null,
+					React.createElement(FilterBoxComponent, null),
+					jobsRow
+				)
 			),
-			React.createElement(
-				'div',
-				null,
-				React.createElement(CompanyBoxComponent, { model: this.CompanyBoxModel1 })
-			)
+			React.createElement(CompanyBoxComponent, { model: this.CompanyBoxModel1 })
 		);
 	}
 });
@@ -32828,40 +32840,48 @@ module.exports = React.createClass({
 			"nav",
 			null,
 			React.createElement("hr", { className: "navHr" }),
-			React.createElement("div", { className: "logo" }),
 			React.createElement(
-				"a",
-				{ href: "#" },
+				"div",
+				{ className: "logoWrapper" },
+				React.createElement("div", { className: "logo" }),
 				React.createElement(
-					"strong",
-					null,
-					"FRESH JOBS"
+					"a",
+					{ href: "#" },
+					React.createElement(
+						"strong",
+						null,
+						"FRESH JOBS"
+					)
 				)
 			),
 			React.createElement(
-				"a",
-				{ href: "#" },
-				"JOBS"
-			),
-			React.createElement(
-				"a",
-				{ href: "#" },
-				"COMPANIES"
-			),
-			React.createElement(
-				"a",
-				{ href: "#" },
-				"CITIES"
-			),
-			React.createElement(
-				"a",
-				{ href: "#" },
-				"WHY FRESH?"
-			),
-			React.createElement(
-				"a",
-				{ href: "#" },
-				"FOR EMPLOYERS"
+				"div",
+				{ className: "links" },
+				React.createElement(
+					"a",
+					{ href: "#" },
+					"JOBS"
+				),
+				React.createElement(
+					"a",
+					{ href: "#" },
+					"COMPANIES"
+				),
+				React.createElement(
+					"a",
+					{ href: "#" },
+					"CITIES"
+				),
+				React.createElement(
+					"a",
+					{ href: "#" },
+					"WHY FRESH?"
+				),
+				React.createElement(
+					"a",
+					{ href: "#" },
+					"FOR EMPLOYERS"
+				)
 			)
 		);
 	}
