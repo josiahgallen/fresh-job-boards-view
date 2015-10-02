@@ -1,33 +1,22 @@
 var React = require('react');
 var JobRowComponent = require('./JobRowComponent.js');
-var CompanyBoxModel = require('../models/CompanyBoxModel.js');
-var JobModel = require('../models/JobModel.js');
 var FilterBoxComponent = require('./FilterBoxComponent.js')
 var CompanyBoxComponent = require('./CompanyBoxComponent.js');
+var InformationBoxComponent = require('./InformationBoxComponent.js')
 
 
 module.exports = React.createClass({
-	// JobModel1: new JobModel(
-	// 	{
-	// 		jobTitle: 'Frontend Engineer',
-	// 		company: 'MaxPlay',
-	// 		location: 'Austin, TX',
-	// 		datePosted:  new Date().toDateString(),
-	// 		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
-	// 		requirements: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
-	// 		tags: [1,2,3,4,5]
-	// 	}),
-	CompanyBoxModel1: new CompanyBoxModel(
-		{
-			companyName: 'MaxPlay',
-			location: 'Austin, TX',
-			logo: '../../images/featured-logo.jpg',
-			background: '../../images/featured.jpg'
-		}),
+	componentWillMount: function() {
+		var that = this;
+		this.props.jobs.on('sync', function() {
+			that.forceUpdate();
+		})
+	},
 	render: function() {
-		var jobsRow = this.props.jobs.map(function(job) {
+		var jobsRows = this.props.jobs.map(function(job) {
+			console.log(job);
 			return (
-				<JobRowComponent job={job} />
+				<JobRowComponent job={job} key={job.cid} />
 			)
 		})
 		return (
@@ -35,10 +24,11 @@ module.exports = React.createClass({
 				<div className="leftColumn">
 					<div>
 						<FilterBoxComponent />
-						{jobsRow}
+						{jobsRows}
 					</div>
 				</div>
-				<CompanyBoxComponent model={this.CompanyBoxModel1} />
+				<InformationBoxComponent />
+				<CompanyBoxComponent model={this.props.company} />
 			</div>
 		)
 	}

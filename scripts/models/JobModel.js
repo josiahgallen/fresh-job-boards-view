@@ -2,7 +2,7 @@ var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
 	defaults: {
-		id: null,
+		_id: null,
 		jobTitle: '',
 		company: '',
 		location: '',
@@ -10,5 +10,7 @@ module.exports = Backbone.Model.extend({
 		description: '',
 		requirements: '',
 		tags: []
-	}
+	},
+	urlRoot: 'http://tiyfe.herokuapp.com/collections/josiah-freshjobs',
+	idAttribute: '_id'
 });

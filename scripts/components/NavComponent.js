@@ -6,16 +6,16 @@ module.exports = React.createClass({
 			<nav>
 				<hr className="navHr" />
 				<div className="logoWrapper">
-					<div className="logo">
-					</div>
+					<a href="#" className="picLink"><div className="logo">
+					</div></a>
 					<a href="#"><strong>FRESH JOBS</strong></a>
 				</div>
 				<div className="links">
-					<a href="#">JOBS</a>
-					<a href="#">COMPANIES</a>
+					<a href="#list">JOBS</a>
+					<a href="#details/:id">COMPANIES</a>
 					<a href="#">CITIES</a>
 					<a href="#">WHY FRESH?</a>
-					<a href="#">FOR EMPLOYERS</a>
+					<a href="#add">FOR EMPLOYERS</a>
 				</div>
 			</nav>
 		)
