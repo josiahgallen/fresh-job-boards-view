@@ -6,10 +6,9 @@ module.exports = Backbone.Model.extend({
 		jobTitle: '',
 		company: '',
 		location: '',
-		datePosted: '',
+		datePosted: new Date().toDateString(),
 		description: '',
-		requirements: '',
-		tags: []
+		tags: ''
 	},
 	urlRoot: 'http://tiyfe.herokuapp.com/collections/josiah-freshjobs',
 	idAttribute: '_id'

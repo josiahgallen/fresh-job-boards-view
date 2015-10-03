@@ -4,6 +4,7 @@ var FilterBoxComponent = require('./FilterBoxComponent.js')
 var CompanyBoxComponent = require('./CompanyBoxComponent.js');
 var InformationBoxComponent = require('./InformationBoxComponent.js')
 
+// var router = {this.props.router};
 
 module.exports = React.createClass({
 	componentWillMount: function() {
@@ -13,10 +14,11 @@ module.exports = React.createClass({
 		})
 	},
 	render: function() {
+		var that = this;
 		var jobsRows = this.props.jobs.map(function(job) {
-			console.log(job);
+			console.log(job.cid);
 			return (
-				<JobRowComponent job={job} key={job.cid} />
+				<JobRowComponent job={job} key={job.cid} router={that.props.router}/>
 			)
 		})
 		return (

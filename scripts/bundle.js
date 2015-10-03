@@ -32586,8 +32586,8 @@ module.exports = React.createClass({
 			add: function add() {
 				that.setState({ currentPage: 'add' });
 			},
-			details: function details() {
-				that.setState({ currentPage: 'details' });
+			details: function details(id) {
+				that.setState({ currentPage: 'details', id: id });
 			}
 		});
 		this.router = new Router();
@@ -32597,11 +32597,15 @@ module.exports = React.createClass({
 		var currentPageComponent = null;
 
 		if (this.state.currentPage === 'list') {
-			currentPageComponent = React.createElement(JobsListPageComponent, { jobs: jobs, company: companyBoxModel1 });
+			currentPageComponent = React.createElement(JobsListPageComponent, { jobs: jobs, company: companyBoxModel1, router: this.router });
 		} else if (this.state.currentPage === 'details') {
-			currentPageComponent = React.createElement(JobDetailsPageComponent, { job: 'Job Title', company: companyBoxModel1 });
+			var currentJobId = this.state.id;
+			var jobModel = jobs.find(function (job) {
+				return job.cid === currentJobId;
+			}, this);
+			currentPageComponent = React.createElement(JobDetailsPageComponent, { jobs: jobs, job: jobModel, company: companyBoxModel1 });
 		} else if (this.state.currentPage === 'add') {
-			currentPageComponent = React.createElement(JobFormPageComponent, null);
+			currentPageComponent = React.createElement(JobFormPageComponent, { router: this.router, jobs: jobs });
 		}
 		return React.createElement(
 			'div',
@@ -32776,52 +32780,54 @@ module.exports = React.createClass({
 });
 
 },{"react":159}],165:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var React = require('react');
 
 module.exports = React.createClass({
-	displayName: "exports",
+	displayName: 'exports',
 
 	render: function render() {
 		return React.createElement(
-			"div",
-			{ className: "jobDetailsPageWrapper" },
+			'div',
+			{ className: 'jobDetailsPageWrapper' },
 			React.createElement(
-				"h1",
+				'h1',
 				null,
-				this.props.model
+				this.props.model.get('jobTitle')
 			),
 			React.createElement(
-				"h6",
+				'h6',
 				null,
-				"Company Location,TX"
+				this.props.model.get('company'),
+				' ',
+				this.props.model.get('location')
 			),
 			React.createElement(
-				"span",
-				{ className: "tagClass" },
-				"Tag"
+				'span',
+				{ className: 'tagClass' },
+				this.props.model.get('tags')
 			),
 			React.createElement(
-				"h2",
+				'h2',
 				null,
-				"Job Description"
+				'Job Description'
 			),
-			React.createElement("hr", null),
+			React.createElement('hr', null),
 			React.createElement(
-				"p",
+				'p',
 				null,
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-			),
-			React.createElement(
-				"h4",
-				null,
-				"What you must have:"
+				this.props.model.get('description')
 			),
 			React.createElement(
-				"p",
+				'h4',
 				null,
-				"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				'What you must have:'
+			),
+			React.createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 			)
 		);
 	}
@@ -32839,13 +32845,18 @@ module.exports = React.createClass({
 	displayName: 'exports',
 
 	render: function render() {
+		var that = this;
+		var currentJobId = this.props.jobs.cid;
+		var jobFocus = this.props.jobs.find(function (job) {
+			return job.cid === currentJobId;
+		}, this);
 		return React.createElement(
 			'div',
 			null,
 			React.createElement(
 				'div',
 				{ className: 'leftColumn' },
-				React.createElement(JobDetailsComponent, { model: this.props.job })
+				React.createElement(JobDetailsComponent, { jobs: jobFocus, model: that.props.job })
 			),
 			React.createElement(CompanyBoxComponent, { model: this.props.company })
 		);
@@ -32864,7 +32875,7 @@ module.exports = React.createClass({
 	render: function render() {
 		return React.createElement(
 			"form",
-			{ className: "postForm" },
+			{ className: "postForm", onSubmit: this.onFormSubmit },
 			React.createElement(
 				"h3",
 				null,
@@ -32875,31 +32886,31 @@ module.exports = React.createClass({
 				null,
 				"Title"
 			),
-			React.createElement("input", null),
+			React.createElement("input", { ref: "title" }),
 			React.createElement(
 				"div",
 				null,
 				"Company Name"
 			),
-			React.createElement("input", null),
+			React.createElement("input", { ref: "company" }),
 			React.createElement(
 				"div",
 				null,
 				"Location"
 			),
-			React.createElement("input", null),
+			React.createElement("input", { ref: "location" }),
 			React.createElement(
 				"div",
 				null,
 				"Description"
 			),
-			React.createElement("textarea", null),
+			React.createElement("textarea", { ref: "description" }),
 			React.createElement(
 				"div",
 				null,
 				"Tags"
 			),
-			React.createElement("input", null),
+			React.createElement("input", { ref: "tags" }),
 			React.createElement(
 				"div",
 				null,
@@ -32910,6 +32921,25 @@ module.exports = React.createClass({
 				)
 			)
 		);
+	},
+	onFormSubmit: function onFormSubmit(e) {
+		e.preventDefault();
+		console.log(this.props.jobs);
+		var newJob = this.props.jobs.create({
+			jobTitle: this.refs.title.getDOMNode().value,
+			company: this.refs.company.getDOMNode().value,
+			location: this.refs.location.getDOMNode().value,
+			description: this.refs.description.getDOMNode().value,
+			tags: this.refs.tags.getDOMNode().value
+		});
+		console.log(this.props.jobs);
+		console.log('submit');
+		this.refs.title.getDOMNode().value = '';
+		this.refs.company.getDOMNode().value = '';
+		this.refs.location.getDOMNode().value = '';
+		this.refs.description.getDOMNode().value = '';
+		this.refs.tags.getDOMNode().value = '';
+		this.props.router.navigate('details/' + newJob.cid, { trigger: true });
 	}
 });
 
@@ -32930,7 +32960,7 @@ module.exports = React.createClass({
 			React.createElement(
 				'div',
 				{ className: 'leftColumn' },
-				React.createElement(JobFormComponent, null)
+				React.createElement(JobFormComponent, { jobs: this.props.jobs, router: this.props.router })
 			),
 			React.createElement(
 				'div',
@@ -32961,9 +32991,13 @@ module.exports = React.createClass({
 				this.props.job.get('datePosted')
 			),
 			React.createElement(
-				"h4",
-				null,
-				this.props.job.get('jobTitle')
+				"a",
+				{ href: '#details/' + this.props.job.get('_id'), onClick: this.onJobClick },
+				React.createElement(
+					"h4",
+					null,
+					this.props.job.get('jobTitle')
+				)
 			),
 			React.createElement("br", null),
 			React.createElement(
@@ -32978,8 +33012,17 @@ module.exports = React.createClass({
 				this.props.job.get('description')
 			),
 			React.createElement("br", null),
-			React.createElement("br", null)
+			React.createElement("br", null),
+			React.createElement(
+				"span",
+				{ className: "tagClass" },
+				this.props.job.get('tags')
+			)
 		);
+	},
+
+	onJobClick: function onJobClick() {
+		this.props.router.navigate('details/' + this.props.job.cid, { trigger: true });
 	}
 });
 
@@ -33067,6 +33110,8 @@ var FilterBoxComponent = require('./FilterBoxComponent.js');
 var CompanyBoxComponent = require('./CompanyBoxComponent.js');
 var InformationBoxComponent = require('./InformationBoxComponent.js');
 
+// var router = {this.props.router};
+
 module.exports = React.createClass({
 	displayName: 'exports',
 
@@ -33077,9 +33122,10 @@ module.exports = React.createClass({
 		});
 	},
 	render: function render() {
+		var that = this;
 		var jobsRows = this.props.jobs.map(function (job) {
-			console.log(job);
-			return React.createElement(JobRowComponent, { job: job, key: job.cid });
+			console.log(job.cid);
+			return React.createElement(JobRowComponent, { job: job, key: job.cid, router: that.props.router });
 		});
 		return React.createElement(
 			'div',
@@ -33199,10 +33245,9 @@ module.exports = Backbone.Model.extend({
 		jobTitle: '',
 		company: '',
 		location: '',
-		datePosted: '',
+		datePosted: new Date().toDateString(),
 		description: '',
-		requirements: '',
-		tags: []
+		tags: ''
 	},
 	urlRoot: 'http://tiyfe.herokuapp.com/collections/josiah-freshjobs',
 	idAttribute: '_id'

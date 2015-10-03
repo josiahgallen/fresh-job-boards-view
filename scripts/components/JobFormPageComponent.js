@@ -7,7 +7,7 @@ module.exports = React.createClass ({
 		return (
 			<div>
 				<div className="leftColumn" >
-					<JobFormComponent />
+					<JobFormComponent jobs={this.props.jobs} router={this.props.router}/>
 				</div>
 				<div className="rightColumn">
 					<JobTipsComponent />

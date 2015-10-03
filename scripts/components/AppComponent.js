@@ -43,8 +43,8 @@ module.exports = React.createClass({
 			add: function() {
 				that.setState({currentPage: 'add'});
 			},
-			details: function() {
-				that.setState({currentPage: 'details'});
+			details: function(id) {
+				that.setState({currentPage: 'details', id: id});
 			}
 		});
 		this.router = new Router();
@@ -54,11 +54,15 @@ module.exports = React.createClass({
 		var currentPageComponent = null;
 
 		if(this.state.currentPage === 'list') {
-			currentPageComponent = <JobsListPageComponent jobs={jobs} company={companyBoxModel1} />;
+			currentPageComponent = <JobsListPageComponent jobs={jobs} company={companyBoxModel1} router={this.router}/>;
 		} else if(this.state.currentPage === 'details') {
-			currentPageComponent = <JobDetailsPageComponent job={'Job Title'} company={companyBoxModel1} />;
+			var currentJobId = this.state.id;
+			var jobModel = jobs.find(function(job) {
+				return job.cid === currentJobId;
+			}, this);
+			currentPageComponent = <JobDetailsPageComponent jobs={jobs} job={jobModel} company={companyBoxModel1} />;
 		} else if (this.state.currentPage === 'add') {
-			currentPageComponent = <JobFormPageComponent />;
+			currentPageComponent = <JobFormPageComponent router={this.router} jobs={jobs}/>;
 		}
 		return (
 			<div>
