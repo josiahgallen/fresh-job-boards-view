@@ -30,6 +30,10 @@ module.exports = React.createClass({
 	},
 	componentWillMount: function() {
 		var that = this;
+		jobs.on('sync', function() {
+			that.forceUpdate();
+		});
+		var that = this;
 		var Router = Backbone.Router.extend ({
 			routes: {
 				'': 'list',
@@ -56,11 +60,13 @@ module.exports = React.createClass({
 		if(this.state.currentPage === 'list') {
 			currentPageComponent = <JobsListPageComponent jobs={jobs} company={companyBoxModel1} router={this.router}/>;
 		} else if(this.state.currentPage === 'details') {
-			var currentJobId = this.state.id;
-			var jobModel = jobs.find(function(job) {
-				return job.cid === currentJobId;
-			}, this);
-			currentPageComponent = <JobDetailsPageComponent jobs={jobs} job={jobModel} company={companyBoxModel1} />;
+			if (jobs.length) {
+				var currentJobId = this.state.id;
+				var jobModel = jobs.find(function(job) {
+					return job.id === currentJobId;
+				}, this);
+				currentPageComponent = <JobDetailsPageComponent jobs={jobs} job={jobModel} company={companyBoxModel1} />;
+			}
 		} else if (this.state.currentPage === 'add') {
 			currentPageComponent = <JobFormPageComponent router={this.router} jobs={jobs}/>;
 		}

@@ -32573,6 +32573,10 @@ module.exports = React.createClass({
 	},
 	componentWillMount: function componentWillMount() {
 		var that = this;
+		jobs.on('sync', function () {
+			that.forceUpdate();
+		});
+		var that = this;
 		var Router = Backbone.Router.extend({
 			routes: {
 				'': 'list',
@@ -32599,11 +32603,13 @@ module.exports = React.createClass({
 		if (this.state.currentPage === 'list') {
 			currentPageComponent = React.createElement(JobsListPageComponent, { jobs: jobs, company: companyBoxModel1, router: this.router });
 		} else if (this.state.currentPage === 'details') {
-			var currentJobId = this.state.id;
-			var jobModel = jobs.find(function (job) {
-				return job.cid === currentJobId;
-			}, this);
-			currentPageComponent = React.createElement(JobDetailsPageComponent, { jobs: jobs, job: jobModel, company: companyBoxModel1 });
+			if (jobs.length) {
+				var currentJobId = this.state.id;
+				var jobModel = jobs.find(function (job) {
+					return job.id === currentJobId;
+				}, this);
+				currentPageComponent = React.createElement(JobDetailsPageComponent, { jobs: jobs, job: jobModel, company: companyBoxModel1 });
+			}
 		} else if (this.state.currentPage === 'add') {
 			currentPageComponent = React.createElement(JobFormPageComponent, { router: this.router, jobs: jobs });
 		}
@@ -32992,7 +32998,7 @@ module.exports = React.createClass({
 			),
 			React.createElement(
 				"a",
-				{ href: '#details/' + this.props.job.get('_id'), onClick: this.onJobClick },
+				{ href: '#details/' + this.props.job.get('_id') },
 				React.createElement(
 					"h4",
 					null,
@@ -33019,10 +33025,6 @@ module.exports = React.createClass({
 				this.props.job.get('tags')
 			)
 		);
-	},
-
-	onJobClick: function onJobClick() {
-		this.props.router.navigate('details/' + this.props.job.cid, { trigger: true });
 	}
 });
 
